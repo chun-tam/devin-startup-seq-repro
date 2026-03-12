@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Pre-commit hook that runs ESLint
+# This will fail if babel-plugin-module-resolver is missing from node_modules
+# (which happens when dependencies are installed under wrong Node version)
+
+echo "Running pre-commit hook..."
+echo "Current Node version: $(node --version)"
+
+# Check Node version matches requirement
+NODE_MAJOR=$(node --version | cut -d. -f1 | tr -d 'v')
+if [ "$NODE_MAJOR" -lt 20 ]; then
+  echo "ERROR: Node version must be >=20, but got $(node --version)"
+  echo "Run: nvm use 20"
+  exit 1
+fi
+
+# Run ESLint - this will fail if babel-plugin-module-resolver is missing
+pnpm run lint

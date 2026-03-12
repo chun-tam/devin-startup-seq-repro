@@ -1,0 +1,21 @@
+{
+  "name": "devin-startup-seq-repro",
+  "version": "1.0.0",
+  "description": "Reproduction repo for Devin Node version mismatch during automated bootstrap",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src/",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=20.19.4 <21"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^5.0.2",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.6"
+  },
+  "keywords": ["devin", "reproduction", "node-version", "bootstrap"],
+  "license": "MIT"
+}
